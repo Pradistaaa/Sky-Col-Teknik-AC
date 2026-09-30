@@ -1,0 +1,563 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { whatsapp } from "../lib/data.js";
+---
+
+<MainLayout
+  title="Tentang Kami | Sky Col Teknik AC"
+  description="Tentang Sky Col Teknik AC dan layanan service AC di wilayah DKI Jakarta."
+>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+
+      <span class="section-label">TENTANG KAMI</span>
+
+      <h1>
+        Mengenal
+        <span>Sky Col Teknik AC.</span>
+      </h1>
+
+      <p>
+        Sky Col Teknik AC hadir untuk membantu kebutuhan
+        perawatan dan perbaikan AC di wilayah DKI Jakarta.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container about-grid">
+
+      <div class="about-heading">
+        <span class="section-label">SKY COL TEKNIK AC</span>
+
+        <h2>
+          Solusi untuk berbagai
+          <span>kebutuhan AC.</span>
+        </h2>
+      </div>
+
+      <div class="about-content">
+
+        <p>
+          Sky Col Teknik AC menyediakan berbagai layanan
+          untuk kebutuhan perawatan, pemasangan, pengecekan,
+          dan perbaikan AC di wilayah DKI Jakarta.
+        </p>
+
+        <p>
+          Layanan yang tersedia mencakup cuci AC, pengisian
+          dan penambahan freon, bongkar pasang, pengecekan,
+          hingga kebutuhan komponen dan perbaikan AC.
+        </p>
+
+        <p>
+          Pelanggan dapat melihat daftar layanan dan harga
+          terlebih dahulu, kemudian melakukan konsultasi
+          dan booking melalui WhatsApp.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- COVERAGE -->
+  <section class="dark-section">
+    <div class="container">
+
+      <div class="about-dark">
+
+        <div>
+          <span class="section-label">
+            AREA LAYANAN
+          </span>
+
+          <h2>
+            Melayani pelanggan
+            <span>di DKI Jakarta.</span>
+          </h2>
+        </div>
+
+        <div class="area-card">
+
+          <div class="area-icon">⌖</div>
+
+          <strong>DKI Jakarta</strong>
+
+          <p>
+            Hubungi kami untuk mengetahui ketersediaan
+            layanan di lokasi Anda.
+          </p>
+
+          <a
+            href={whatsapp("menanyakan ketersediaan layanan di lokasi saya")}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="area-link"
+          >
+            Tanya area layanan →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- VALUES -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-label">
+            NILAI LAYANAN
+          </span>
+
+          <h2>
+            Hal yang menjadi
+            <span>fokus layanan kami.</span>
+          </h2>
+        </div>
+      </div>
+
+
+      <div class="value-grid">
+
+        <div class="value-card">
+          <span>01</span>
+
+          <h3>Layanan Lengkap</h3>
+
+          <p>
+            Berbagai kebutuhan service AC tersedia
+            dalam satu layanan.
+          </p>
+        </div>
+
+
+        <div class="value-card">
+          <span>02</span>
+
+          <h3>Harga Transparan</h3>
+
+          <p>
+            Daftar harga tersedia agar pelanggan
+            dapat mengetahui estimasi biaya layanan.
+          </p>
+        </div>
+
+
+        <div class="value-card">
+          <span>03</span>
+
+          <h3>Informasi Jelas</h3>
+
+          <p>
+            Pelanggan dapat melihat layanan dan
+            harga sebelum melakukan booking.
+          </p>
+        </div>
+
+
+        <div class="value-card">
+          <span>04</span>
+
+          <h3>Mudah Dihubungi</h3>
+
+          <p>
+            Konsultasi dan pemesanan layanan dapat
+            dilakukan langsung melalui WhatsApp.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CUSTOMER -->
+  <section class="section customer-section">
+    <div class="container">
+
+      <div class="customer-box">
+
+        <div>
+          <span class="section-label">
+            KEBUTUHAN AC
+          </span>
+
+          <h2>
+            Untuk rumah,
+            <span>kantor & usaha.</span>
+          </h2>
+
+          <p>
+            Sky Col Teknik AC melayani kebutuhan AC untuk
+            rumah, kantor, toko, ruko, dan tempat usaha.
+          </p>
+        </div>
+
+        <div class="customer-tags">
+
+          <span>Rumah</span>
+          <span>Kantor</span>
+          <span>Toko</span>
+          <span>Ruko</span>
+          <span>Tempat Usaha</span>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta-inner">
+
+      <div>
+        <span>SKY COL TEKNIK AC</span>
+
+        <h2>
+          Punya kebutuhan AC?<br />
+          <strong>Konsultasikan dengan kami.</strong>
+        </h2>
+      </div>
+
+      <a
+        class="cta-button"
+        href={whatsapp()}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <strong>0812 9798 3801</strong>
+        <b>↗</b>
+      </a>
+
+    </div>
+  </section>
+
+</MainLayout>
+
+
+<style>
+  .page-hero {
+    padding: 90px 0 80px;
+    background:
+      radial-gradient(
+        circle at 85% 20%,
+        rgba(37, 99, 235, 0.12),
+        transparent 35%
+      ),
+      #f8fbff;
+  }
+
+  .page-hero h1 {
+    max-width: 720px;
+    margin: 18px 0 0;
+    color: #0f172a;
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+  }
+
+  .page-hero h1 span {
+    display: block;
+    color: #2563eb;
+  }
+
+  .page-hero p {
+    max-width: 650px;
+    margin-top: 24px;
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .about-heading h2 {
+    margin-top: 15px;
+  }
+
+  .about-heading h2 span {
+    display: block;
+    color: #2563eb;
+  }
+
+  .about-content {
+    max-width: 680px;
+  }
+
+  .about-content p {
+    margin: 0 0 22px;
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .dark-section {
+    padding: 90px 0;
+    background: #0f172a;
+    color: #ffffff;
+  }
+
+  .dark-section .section-label {
+    color: #60a5fa;
+  }
+
+  .about-dark {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-dark h2 {
+    margin-top: 15px;
+    color: #ffffff;
+  }
+
+  .about-dark h2 span {
+    display: block;
+    color: #60a5fa;
+  }
+
+  .area-card {
+    padding: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .area-icon {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 24px;
+    border-radius: 14px;
+    background: rgba(96, 165, 250, 0.12);
+    color: #60a5fa;
+    font-size: 24px;
+  }
+
+  .area-card strong {
+    display: block;
+    color: #ffffff;
+    font-size: 23px;
+  }
+
+  .area-card p {
+    margin: 10px 0 20px;
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .area-link {
+    color: #60a5fa;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .section-heading {
+    margin-bottom: 40px;
+  }
+
+  .section-heading h2 {
+    margin-top: 12px;
+  }
+
+  .section-heading h2 span {
+    display: block;
+    color: #2563eb;
+  }
+
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .value-card {
+    min-height: 220px;
+    padding: 27px;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    background: #ffffff;
+  }
+
+  .value-card > span {
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .value-card h3 {
+    margin: 38px 0 12px;
+    color: #0f172a;
+    font-size: 19px;
+  }
+
+  .value-card p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .customer-section {
+    padding-top: 0;
+  }
+
+  .customer-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 55px;
+    border: 1px solid #dbeafe;
+    border-radius: 24px;
+    background: #eff6ff;
+  }
+
+  .customer-box h2 {
+    margin-top: 12px;
+  }
+
+  .customer-box h2 span {
+    display: block;
+    color: #2563eb;
+  }
+
+  .customer-box p {
+    max-width: 600px;
+    margin-top: 18px;
+    color: #64748b;
+    line-height: 1.8;
+  }
+
+  .customer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .customer-tags span {
+    padding: 11px 16px;
+    border: 1px solid #bfdbfe;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .cta {
+    padding: 75px 0;
+    background: #2563eb;
+    color: #ffffff;
+  }
+
+  .cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .cta-inner > div > span {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+  }
+
+  .cta h2 {
+    margin-top: 12px;
+    color: #ffffff;
+  }
+
+  .cta h2 strong {
+    color: #dbeafe;
+  }
+
+  .cta-button {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 18px 22px;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #0f172a;
+    white-space: nowrap;
+  }
+
+  .cta-button b {
+    color: #2563eb;
+    font-size: 20px;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid,
+    .about-dark,
+    .customer-box {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .value-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .page-hero {
+      padding: 60px 0;
+    }
+
+    .page-hero h1 {
+      font-size: 43px;
+    }
+
+    .page-hero p {
+      font-size: 15px;
+    }
+
+    .value-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .customer-box {
+      padding: 30px 24px;
+    }
+
+    .cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cta-button {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+</style>

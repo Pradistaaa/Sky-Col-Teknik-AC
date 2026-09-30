@@ -1,0 +1,449 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { prices, whatsapp } from "../lib/data.js";
+---
+
+<MainLayout
+  title="Daftar Harga Service AC | Sky Col Teknik AC"
+  description="Daftar harga layanan service AC Sky Col Teknik AC untuk wilayah DKI Jakarta."
+>
+
+  <section class="page-hero">
+    <div class="container">
+
+      <span class="section-label">DAFTAR HARGA</span>
+
+      <h1>
+        Harga layanan
+        <span>Sky Col Teknik AC.</span>
+      </h1>
+
+      <p>
+        Berikut daftar harga layanan AC yang tersedia.
+        Untuk kebutuhan atau kondisi tertentu, silakan
+        konsultasikan terlebih dahulu melalui WhatsApp.
+      </p>
+
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+
+      <div class="price-intro">
+        <div>
+          <span class="section-label">PRICE LIST</span>
+
+          <h2>
+            Layanan AC dengan
+            <span>harga transparan.</span>
+          </h2>
+        </div>
+
+        <a
+          class="btn btn-primary"
+          href={whatsapp()}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Tanya & Booking via WhatsApp ↗
+        </a>
+      </div>
+
+
+      <div class="price-table">
+
+        <div class="price-header">
+          <span>Layanan</span>
+          <span>Harga</span>
+        </div>
+
+        {prices.map((price, index) => (
+          <div class="price-row">
+
+            <div class="price-name">
+              <span class="price-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <span>{price[0]}</span>
+            </div>
+
+            <strong>{price[1]}</strong>
+
+          </div>
+        ))}
+
+      </div>
+
+
+      <div class="price-note">
+        <strong>Butuh informasi lebih lanjut?</strong>
+
+        <p>
+          Jika Anda belum mengetahui layanan yang dibutuhkan,
+          silakan hubungi Sky Col Teknik AC melalui WhatsApp.
+          Sampaikan jenis AC dan kebutuhan Anda untuk mendapatkan
+          informasi lebih lanjut.
+        </p>
+
+        <a
+          href={whatsapp("konsultasi mengenai layanan AC")}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-link"
+        >
+          Konsultasi melalui WhatsApp →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="dark-section">
+    <div class="container">
+
+      <div class="dark-price-content">
+
+        <div>
+          <span class="section-label">
+            SKY COL TEKNIK AC
+          </span>
+
+          <h2>
+            Pilih layanan sesuai
+            <span>kebutuhan AC Anda.</span>
+          </h2>
+        </div>
+
+        <p>
+          Mulai dari cuci AC, freon, bongkar pasang,
+          pengecekan, hingga berbagai kebutuhan perbaikan AC.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="cta">
+    <div class="container cta-inner">
+
+      <div>
+        <span>SKY COL TEKNIK AC</span>
+
+        <h2>
+          Sudah tahu kebutuhannya?<br />
+          <strong>Booking sekarang.</strong>
+        </h2>
+      </div>
+
+      <a
+        class="cta-button"
+        href={whatsapp()}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <strong>0812 9798 3801</strong>
+        <b>↗</b>
+      </a>
+
+    </div>
+  </section>
+
+</MainLayout>
+
+
+<style>
+  .page-hero {
+    padding: 90px 0 80px;
+    background:
+      radial-gradient(
+        circle at 85% 20%,
+        rgba(37, 99, 235, 0.12),
+        transparent 35%
+      ),
+      #f8fbff;
+  }
+
+  .page-hero h1 {
+    max-width: 720px;
+    margin: 18px 0 0;
+    color: #0f172a;
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+  }
+
+  .page-hero h1 span {
+    display: block;
+    color: #2563eb;
+  }
+
+  .page-hero p {
+    max-width: 680px;
+    margin-top: 24px;
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .price-intro {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 38px;
+  }
+
+  .price-intro h2 {
+    margin-top: 12px;
+  }
+
+  .price-intro h2 span {
+    display: block;
+    color: #2563eb;
+  }
+
+  .price-table {
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    background: #ffffff;
+  }
+
+  .price-header,
+  .price-row {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    align-items: center;
+  }
+
+  .price-header {
+    padding: 18px 25px;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .price-header span:last-child {
+    text-align: right;
+  }
+
+  .price-row {
+    min-height: 68px;
+    padding: 14px 25px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .price-row:last-child {
+    border-bottom: 0;
+  }
+
+  .price-row:hover {
+    background: #f8fbff;
+  }
+
+  .price-name {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: #334155;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .price-number {
+    min-width: 25px;
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .price-row strong {
+    color: #2563eb;
+    font-size: 15px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .price-note {
+    margin-top: 22px;
+    padding: 30px;
+    border: 1px solid #dbeafe;
+    border-radius: 18px;
+    background: #eff6ff;
+  }
+
+  .price-note strong {
+    color: #0f172a;
+    font-size: 17px;
+  }
+
+  .price-note p {
+    max-width: 760px;
+    margin: 10px 0 14px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .text-link {
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .dark-section {
+    padding: 85px 0;
+    background: #0f172a;
+    color: #ffffff;
+  }
+
+  .dark-section .section-label {
+    color: #60a5fa;
+  }
+
+  .dark-price-content {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .dark-price-content h2 {
+    margin-top: 15px;
+    color: #ffffff;
+  }
+
+  .dark-price-content h2 span {
+    display: block;
+    color: #60a5fa;
+  }
+
+  .dark-price-content p {
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+
+  .cta {
+    padding: 75px 0;
+    background: #2563eb;
+    color: #ffffff;
+  }
+
+  .cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .cta-inner > div > span {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+  }
+
+  .cta h2 {
+    margin-top: 12px;
+    color: #ffffff;
+  }
+
+  .cta h2 strong {
+    color: #dbeafe;
+  }
+
+  .cta-button {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 18px 22px;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #0f172a;
+    white-space: nowrap;
+  }
+
+  .cta-button b {
+    color: #2563eb;
+    font-size: 20px;
+  }
+
+  @media (max-width: 700px) {
+    .page-hero {
+      padding: 60px 0;
+    }
+
+    .page-hero h1 {
+      font-size: 43px;
+    }
+
+    .page-hero p {
+      font-size: 15px;
+    }
+
+    .price-intro {
+      display: block;
+    }
+
+    .price-intro .btn {
+      width: 100%;
+      margin-top: 22px;
+      text-align: center;
+    }
+
+    .price-header,
+    .price-row {
+      grid-template-columns: 1fr auto;
+    }
+
+    .price-header {
+      padding: 16px;
+    }
+
+    .price-row {
+      padding: 14px 16px;
+      gap: 15px;
+    }
+
+    .price-name {
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .price-number {
+      display: none;
+    }
+
+    .price-row strong {
+      font-size: 13px;
+    }
+
+    .price-note {
+      padding: 24px;
+    }
+
+    .dark-price-content {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cta-button {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+</style>

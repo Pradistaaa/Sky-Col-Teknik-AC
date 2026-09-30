@@ -1,790 +1,342 @@
 ---
-const waNumber = "6281297983801";
-
-const services = [
-  {
-    icon: "❄️",
-    title: "Service & Cuci AC",
-    desc: "Perawatan AC agar tetap bersih, dingin, dan bekerja optimal.",
-  },
-  {
-    icon: "🧊",
-    title: "Freon AC",
-    desc: "Tambah atau isi freon sesuai jenis refrigerant dan kapasitas AC.",
-  },
-  {
-    icon: "🔧",
-    title: "Bongkar & Pasang",
-    desc: "Jasa bongkar, pasang, dan bongkar pasang AC rumah maupun usaha.",
-  },
-  {
-    icon: "⚙️",
-    title: "Perbaikan AC",
-    desc: "Pengecekan dan perbaikan berbagai masalah pada unit AC.",
-  },
-];
-
-const priceGroups = [
-  {
-    title: "Service & Cuci AC",
-    items: [
-      ["Service Cuci AC 0.5–1 PK", "Rp75.000"],
-      ["Service Cuci AC 1.5–2 PK", "Rp85.000"],
-      ["Service Cuci AC Inverter", "Rp135.000"],
-    ],
-  },
-  {
-    title: "Tambah & Isi Freon",
-    items: [
-      ["Tambah Freon R22 0.5–1 PK", "Rp250.000"],
-      ["Tambah Freon R22 1.5–2 PK", "Rp300.000"],
-      ["Tambah Freon R32/R410 0.5–1 PK", "Rp250.000"],
-      ["Tambah Freon R32/R410 1.5–2 PK", "Rp250.000"],
-      ["Isi Freon R22 0.5–1 PK", "Rp350.000"],
-      ["Isi Freon R22 1.5–2 PK", "Rp450.000"],
-      ["Isi Freon R32/R410 0.5–1 PK", "Rp350.000"],
-      ["Isi Freon R32/R410 1.5–2 PK", "Rp450.000"],
-    ],
-  },
-  {
-    title: "Bongkar & Pasang AC",
-    items: [
-      ["Bongkar AC", "Rp200.000"],
-      ["Pasang AC 0.5–1 PK", "Rp350.000"],
-      ["Pasang AC 1.5–2 PK", "Rp400.000"],
-      ["Bongkar Pasang AC 0.5–1 PK", "Rp475.000"],
-      ["Bongkar Pasang AC 1.5–2 PK", "Rp575.000"],
-    ],
-  },
-  {
-    title: "Perbaikan & Komponen",
-    items: [
-      ["Penggantian Kapasitor AC 0.5–1 PK", "Rp375.000"],
-      ["Penggantian Kapasitor AC 1.5–2 PK", "Rp425.000"],
-      ["Harga Bobok Tembok per Titik", "Rp50.000"],
-      ["Jasa Las per Titik", "Rp125.000"],
-      ["Vakum AC", "Rp275.000"],
-      ["Flushing AC", "Rp225.000"],
-      ["Vakum dan Flushing", "Rp475.000"],
-      ["Biaya Pengecekan AC", "Rp100.000"],
-      ["Perbaikan Kebocoran Pipa Beringan Nepel", "Rp395.000"],
-      ["Oli Kompresor AC", "Rp375.000"],
-      ["Pergantian Pentil Sill Nepel", "Rp175.000"],
-    ],
-  },
-];
-
-const faqs = [
-  {
-    q: "Apakah Sky Col Teknik AC melayani panggilan?",
-    a: "Ya. Sky Col Teknik AC melayani kebutuhan service AC dengan sistem panggilan di area DKI Jakarta.",
-  },
-  {
-    q: "Apakah bisa service AC inverter?",
-    a: "Bisa. Tersedia layanan service cuci AC inverter dengan harga yang tercantum pada daftar layanan.",
-  },
-  {
-    q: "Apakah bisa bongkar dan pasang AC?",
-    a: "Bisa. Tersedia layanan bongkar, pasang, maupun bongkar pasang berdasarkan kapasitas AC.",
-  },
-  {
-    q: "Bagaimana cara melakukan booking?",
-    a: "Hubungi Sky Col Teknik AC melalui WhatsApp, sampaikan kebutuhan dan lokasi, kemudian teknisi akan membantu proses selanjutnya.",
-  },
-];
-
-function whatsapp(service = "konsultasi service AC") {
-  return `https://wa.me/${waNumber}?text=${encodeURIComponent(
-    `Halo Sky Col Teknik AC, saya ingin ${service}. Mohon informasinya.`
-  )}`;
-}
+import MainLayout from "../layouts/MainLayout.astro";
+import { services, whatsapp } from "../lib/data.js";
 ---
 
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Sky Col Teknik AC - Jasa service, cuci, isi freon, bongkar pasang dan perbaikan AC di DKI Jakarta." />
-    <meta name="theme-color" content="#075985" />
-    <title>Sky Col Teknik AC | Service AC DKI Jakarta</title>
+<MainLayout
+  title="Sky Col Teknik AC | Service AC DKI Jakarta"
+  description="Sky Col Teknik AC melayani service, cuci AC, freon, bongkar pasang, dan perbaikan AC di DKI Jakarta."
+>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
 
-  <body>
+      <div class="hero-content">
+        <span class="hero-label">SERVICE AC DKI JAKARTA</span>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-      <div class="container nav-inner">
-        <a href="#home" class="brand">
-          <span class="brand-icon">✦</span>
-          <span>
-            <strong>SKY COL</strong>
-            <small>TEKNIK AC</small>
-          </span>
-        </a>
+        <h1>
+          AC Bermasalah?
+          <span>Kami Siap Membantu.</span>
+        </h1>
 
-        <nav>
-          <a href="#layanan">Layanan</a>
-          <a href="#harga">Harga</a>
-          <a href="#tentang">Tentang</a>
-          <a href="#faq">FAQ</a>
-        </nav>
+        <p>
+          Sky Col Teknik AC melayani service, cuci AC, freon,
+          bongkar pasang, hingga perbaikan AC untuk rumah,
+          kantor, toko, dan tempat usaha.
+        </p>
 
-        <a
-          class="nav-button"
-          href={whatsapp()}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hubungi Kami
-        </a>
-      </div>
-    </header>
-
-    <main>
-
-      <!-- HERO -->
-      <section class="hero" id="home">
-        <div class="hero-glow glow-one"></div>
-        <div class="hero-glow glow-two"></div>
-
-        <div class="container hero-grid">
-          <div class="hero-content">
-            <div class="eyebrow">
-              <span class="dot"></span>
-              SERVICE AC DKI JAKARTA
-            </div>
-
-            <h1>
-              AC Bermasalah?
-              <span>Kami Siap Membantu.</span>
-            </h1>
-
-            <p>
-              Sky Col Teknik AC melayani service, cuci AC, freon,
-              bongkar pasang, hingga perbaikan AC untuk rumah,
-              kantor, toko, dan tempat usaha.
-            </p>
-
-            <div class="hero-actions">
-              <a
-                class="btn btn-primary"
-                href={whatsapp()}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Booking via WhatsApp <span>↗</span>
-              </a>
-
-              <a class="btn btn-outline" href="#harga">
-                Lihat Daftar Harga
-              </a>
-            </div>
-
-            <div class="hero-info">
-              <div>
-                <strong>27+</strong>
-                <span>Layanan AC</span>
-              </div>
-              <div>
-                <strong>DKI</strong>
-                <span>Area Layanan</span>
-              </div>
-              <div>
-                <strong>WA</strong>
-                <span>Respon Langsung</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-card">
-            <div class="hero-card-top">
-              <span>SKY COL</span>
-              <span>01</span>
-            </div>
-
-            <div class="ac-illustration">
-              <div class="ac-unit">
-                <div class="ac-display">24°</div>
-                <div class="ac-line"></div>
-                <div class="air air-one"></div>
-                <div class="air air-two"></div>
-                <div class="air air-three"></div>
-              </div>
-            </div>
-
-            <div class="hero-card-bottom">
-              <span>TEKNISI AC</span>
-              <strong>DKI JAKARTA</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- TRUST BAR -->
-      <section class="trust">
-        <div class="container trust-inner">
-          <span>LAYANAN UNTUK</span>
-          <div>Rumah</div>
-          <div>Kantor</div>
-          <div>Toko</div>
-          <div>Ruko</div>
-          <div>Tempat Usaha</div>
-        </div>
-      </section>
-
-      <!-- SERVICES -->
-      <section class="section" id="layanan">
-        <div class="container">
-          <div class="section-heading">
-            <div>
-              <span class="section-label">LAYANAN KAMI</span>
-              <h2>Solusi lengkap<br /><span>untuk kebutuhan AC.</span></h2>
-            </div>
-
-            <p>
-              Dari perawatan rutin hingga perbaikan,
-              Sky Col Teknik AC siap membantu menjaga
-              AC tetap bekerja dengan baik.
-            </p>
-          </div>
-
-          <div class="service-grid">
-            {services.map((service, index) => (
-              <a
-                class="service-card"
-                href={whatsapp(service.title.toLowerCase())}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div class="service-number">0{index + 1}</div>
-                <div class="service-icon">{service.icon}</div>
-                <h3>{service.title}</h3>
-                <p>{service.desc}</p>
-                <span class="service-link">Pesan layanan →</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section class="about section" id="tentang">
-        <div class="container about-grid">
-          <div class="about-visual">
-            <div class="about-box">
-              <span>SKY COL</span>
-              <strong>TEKNIK<br />AC</strong>
-              <small>DKI JAKARTA</small>
-            </div>
-          </div>
-
-          <div class="about-content">
-            <span class="section-label">TENTANG KAMI</span>
-            <h2>
-              Perawatan AC yang tepat,
-              <span>membuat ruangan tetap nyaman.</span>
-            </h2>
-
-            <p>
-              Sky Col Teknik AC hadir untuk membantu kebutuhan
-              perawatan dan perbaikan AC di wilayah DKI Jakarta.
-            </p>
-
-            <p>
-              Kami menyediakan berbagai layanan mulai dari cuci AC,
-              pengisian freon, bongkar pasang, pengecekan,
-              hingga kebutuhan perbaikan dan komponen AC.
-            </p>
-
-            <div class="check-list">
-              <div><span>✓</span> Layanan AC lengkap</div>
-              <div><span>✓</span> Melayani area DKI Jakarta</div>
-              <div><span>✓</span> Booking melalui WhatsApp</div>
-              <div><span>✓</span> Harga layanan transparan</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PRICE -->
-      <section class="section price-section" id="harga">
-        <div class="container">
-          <div class="section-heading centered">
-            <span class="section-label">DAFTAR HARGA</span>
-            <h2>Layanan & <span>harga.</span></h2>
-            <p>
-              Pilih kebutuhan AC Anda dan hubungi kami untuk
-              melakukan booking atau konsultasi.
-            </p>
-          </div>
-
-          <div class="price-grid">
-            {priceGroups.map((group) => (
-              <div class="price-card">
-                <div class="price-title">
-                  <span></span>
-                  <h3>{group.title}</h3>
-                </div>
-
-                <div class="price-list">
-                  {group.items.map(([name, price]) => (
-                    <a
-                      href={whatsapp(name.toLowerCase())}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="price-row"
-                    >
-                      <span>{name}</span>
-                      <strong>{price}</strong>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div class="price-note">
-            <span>ⓘ</span>
-            <p>
-              Harga layanan mengikuti daftar yang tersedia.
-              Untuk kondisi khusus atau kebutuhan tambahan,
-              silakan konsultasikan terlebih dahulu melalui WhatsApp.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- WHY US -->
-      <section class="why section">
-        <div class="container">
-          <div class="why-inner">
-            <div class="why-heading">
-              <span class="section-label">KENAPA SKY COL?</span>
-              <h2>
-                Bukan sekadar<br />
-                <span>service AC.</span>
-              </h2>
-            </div>
-
-            <div class="why-list">
-              <div class="why-item">
-                <span>01</span>
-                <div>
-                  <h3>Layanan Lengkap</h3>
-                  <p>
-                    Berbagai kebutuhan AC tersedia dalam satu layanan.
-                  </p>
-                </div>
-              </div>
-
-              <div class="why-item">
-                <span>02</span>
-                <div>
-                  <h3>Harga Transparan</h3>
-                  <p>
-                    Daftar harga tersedia agar pelanggan dapat mengetahui
-                    estimasi biaya layanan.
-                  </p>
-                </div>
-              </div>
-
-              <div class="why-item">
-                <span>03</span>
-                <div>
-                  <h3>Area DKI Jakarta</h3>
-                  <p>
-                    Melayani kebutuhan service AC untuk pelanggan
-                    di wilayah DKI Jakarta.
-                  </p>
-                </div>
-              </div>
-
-              <div class="why-item">
-                <span>04</span>
-                <div>
-                  <h3>Mudah Booking</h3>
-                  <p>
-                    Konsultasi dan pemesanan layanan dapat dilakukan
-                    langsung melalui WhatsApp.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROCESS -->
-      <section class="section">
-        <div class="container">
-          <div class="section-heading centered">
-            <span class="section-label">CARA BOOKING</span>
-            <h2>Semudah <span>3 langkah.</span></h2>
-          </div>
-
-          <div class="process-grid">
-            <div class="process-card">
-              <span>01</span>
-              <h3>Hubungi Kami</h3>
-              <p>
-                Kirim pesan melalui WhatsApp dan sampaikan
-                kebutuhan AC Anda.
-              </p>
-            </div>
-
-            <div class="process-card">
-              <span>02</span>
-              <h3>Informasikan Lokasi</h3>
-              <p>
-                Berikan informasi lokasi dan jenis AC
-                yang membutuhkan layanan.
-              </p>
-            </div>
-
-            <div class="process-card">
-              <span>03</span>
-              <h3>Jadwalkan Service</h3>
-              <p>
-                Tentukan waktu layanan dan teknisi akan
-                membantu kebutuhan AC Anda.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- AREA -->
-      <section class="area">
-        <div class="container area-inner">
-          <div>
-            <span class="section-label">AREA LAYANAN</span>
-            <h2>Melayani kebutuhan AC<br /><span>di DKI Jakarta.</span></h2>
-          </div>
-
-          <div class="area-box">
-            <span>📍</span>
-            <div>
-              <strong>DKI Jakarta</strong>
-              <p>
-                Hubungi kami untuk mengetahui ketersediaan
-                layanan di lokasi Anda.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="section faq-section" id="faq">
-        <div class="container faq-grid">
-          <div class="faq-intro">
-            <span class="section-label">FAQ</span>
-            <h2>Pertanyaan yang<br /><span>sering ditanyakan.</span></h2>
-            <p>
-              Belum menemukan jawaban? Silakan langsung
-              hubungi Sky Col Teknik AC melalui WhatsApp.
-            </p>
-
-            <a
-              class="btn btn-primary"
-              href={whatsapp()}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Tanya via WhatsApp ↗
-            </a>
-          </div>
-
-          <div class="faq-list">
-            {faqs.map((faq) => (
-              <details>
-                <summary>
-                  {faq.q}
-                  <span>+</span>
-                </summary>
-                <p>{faq.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="cta">
-        <div class="container cta-inner">
-          <div>
-            <span>SKY COL TEKNIK AC</span>
-            <h2>
-              AC bermasalah?<br />
-              <strong>Jangan tunggu sampai parah.</strong>
-            </h2>
-          </div>
-
+        <div class="hero-actions">
           <a
+            class="btn btn-primary"
             href={whatsapp()}
             target="_blank"
             rel="noopener noreferrer"
-            class="cta-button"
           >
-            <span>WhatsApp</span>
-            <strong>0812 9798 3801</strong>
-            <b>↗</b>
+            Booking via WhatsApp ↗
+          </a>
+
+          <a class="btn btn-outline" href="/harga">
+            Lihat Daftar Harga
           </a>
         </div>
-      </section>
+      </div>
 
-    </main>
+      <div class="hero-visual">
+        <div class="ac-card">
+          <div class="ac-top"></div>
+          <div class="ac-display">24°</div>
+          <div class="ac-line"></div>
+          <div class="ac-line short"></div>
+        </div>
 
-    <!-- FOOTER -->
-    <footer>
-      <div class="container footer-grid">
-        <div class="footer-brand">
-          <a href="#home" class="brand">
-            <span class="brand-icon">✦</span>
-            <span>
-              <strong>SKY COL</strong>
-              <small>TEKNIK AC</small>
+        <div class="floating-card">
+          <strong>27+</strong>
+          <span>Layanan AC</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- TRUST -->
+  <section class="trust">
+    <div class="container">
+
+      <div class="trust-grid">
+
+        <div class="trust-item">
+          <strong>27+</strong>
+          <span>Layanan AC</span>
+        </div>
+
+        <div class="trust-item">
+          <strong>DKI</strong>
+          <span>Area Layanan</span>
+        </div>
+
+        <div class="trust-item">
+          <strong>WA</strong>
+          <span>Respon Langsung</span>
+        </div>
+
+        <div class="trust-item">
+          <strong>AC</strong>
+          <span>Rumah & Usaha</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-label">LAYANAN KAMI</span>
+
+          <h2>
+            Solusi lengkap
+            <span>untuk kebutuhan AC.</span>
+          </h2>
+        </div>
+
+        <a class="text-link" href="/layanan">
+          Lihat semua layanan →
+        </a>
+      </div>
+
+      <div class="service-grid">
+
+        {services.map((service, index) => (
+          <a
+            class="service-card"
+            href={whatsapp(service.title.toLowerCase())}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <div class="service-top">
+              <span class="service-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <span class="service-arrow">↗</span>
+            </div>
+
+            <div class="service-icon">
+              {index === 0 && "❄"}
+              {index === 1 && "◈"}
+              {index === 2 && "⌂"}
+              {index === 3 && "⚙"}
+            </div>
+
+            <h3>{service.title}</h3>
+
+            <p>{service.description}</p>
+
+            <span class="service-link">
+              Konsultasi layanan →
             </span>
+
           </a>
+        ))}
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- WHY US -->
+  <section class="dark-section">
+    <div class="container two-column">
+
+      <div>
+        <span class="section-label light">
+          KENAPA SKY COL?
+        </span>
+
+        <h2>
+          Layanan AC yang
+          <span>jelas dan mudah.</span>
+        </h2>
+
+        <p class="dark-description">
+          Berbagai kebutuhan service AC tersedia dalam satu layanan,
+          dengan informasi harga yang dapat dilihat sebelum melakukan
+          booking.
+        </p>
+      </div>
+
+      <div class="feature-list">
+
+        <div class="feature-item">
+          <span>01</span>
+          <div>
+            <strong>Layanan AC Lengkap</strong>
+            <p>
+              Berbagai kebutuhan AC tersedia dalam satu layanan.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <span>02</span>
+          <div>
+            <strong>Harga Transparan</strong>
+            <p>
+              Daftar harga tersedia agar pelanggan dapat mengetahui
+              estimasi biaya layanan.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <span>03</span>
+          <div>
+            <strong>Area DKI Jakarta</strong>
+            <p>
+              Melayani kebutuhan service AC untuk pelanggan di wilayah
+              DKI Jakarta.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <span>04</span>
+          <div>
+            <strong>Mudah Booking</strong>
+            <p>
+              Konsultasi dan pemesanan layanan dapat dilakukan melalui
+              WhatsApp.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- AREA -->
+  <section class="section">
+    <div class="container">
+
+      <div class="area-box">
+
+        <div>
+          <span class="section-label">AREA LAYANAN</span>
+
+          <h2>
+            Melayani kebutuhan AC di
+            <span>DKI Jakarta.</span>
+          </h2>
 
           <p>
-            Solusi service dan perawatan AC
-            untuk kebutuhan Anda di DKI Jakarta.
+            Hubungi kami untuk mengetahui ketersediaan layanan
+            di lokasi Anda.
           </p>
         </div>
 
-        <div>
-          <h4>Navigasi</h4>
-          <a href="#layanan">Layanan</a>
-          <a href="#harga">Daftar Harga</a>
-          <a href="#tentang">Tentang Kami</a>
-          <a href="#faq">FAQ</a>
-        </div>
+        <a
+          class="btn btn-primary"
+          href={whatsapp("menanyakan ketersediaan layanan AC")}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Tanya via WhatsApp ↗
+        </a>
 
-        <div>
-          <h4>Hubungi</h4>
-          <a
-            href={whatsapp()}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            0812 9798 3801
-          </a>
-          <span>DKI Jakarta</span>
-        </div>
       </div>
 
-      <div class="container copyright">
-        <span>© 2026 Sky Col Teknik AC</span>
-        <span>Service AC • DKI Jakarta</span>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta-inner">
+
+      <div>
+        <span>SKY COL TEKNIK AC</span>
+
+        <h2>
+          AC bermasalah?<br />
+          <strong>Jangan tunggu sampai parah.</strong>
+        </h2>
       </div>
-    </footer>
 
-    <!-- FLOATING WHATSAPP -->
-    <a
-      class="floating-wa"
-      href={whatsapp()}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Hubungi Sky Col Teknik AC via WhatsApp"
-    >
-      <span>WA</span>
-    </a>
+      <a
+        class="cta-button"
+        href={whatsapp()}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <strong>0812 9798 3801</strong>
+        <b>↗</b>
+      </a>
 
-  </body>
-</html>
+    </div>
+  </section>
+
+</MainLayout>
+
 
 <style>
-  :root {
-    --blue: #075985;
-    --blue-dark: #043b59;
-    --blue-light: #eaf7fc;
-    --cyan: #12a6d8;
-    --ink: #10212d;
-    --muted: #647783;
-    --white: #ffffff;
-    --off: #f5f9fb;
-    --line: #dce8ed;
-    --shadow: 0 20px 60px rgba(7, 89, 133, .12);
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: "DM Sans", sans-serif;
-    color: var(--ink);
-    background: var(--white);
-    line-height: 1.6;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .container {
-    width: min(1160px, calc(100% - 40px));
-    margin: auto;
-  }
-
-  /* NAVBAR */
-
-  .navbar {
-    height: 82px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(220, 232, 237, .8);
-    background: rgba(255,255,255,.94);
-    backdrop-filter: blur(15px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-  }
-
-  .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .brand-icon {
-    width: 38px;
-    height: 38px;
-    display: grid;
-    place-items: center;
-    background: var(--blue);
-    color: white;
-    border-radius: 10px;
-    font-size: 19px;
-  }
-
-  .brand strong {
-    display: block;
-    font-family: "Manrope", sans-serif;
-    font-size: 15px;
-    line-height: 1;
-    letter-spacing: 1.4px;
-  }
-
-  .brand small {
-    display: block;
-    margin-top: 4px;
-    color: var(--blue);
-    font-size: 8px;
-    font-weight: 800;
-    letter-spacing: 2px;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-
-  nav a {
-    color: #566975;
-    font-size: 13px;
-    font-weight: 600;
-    transition: .2s;
-  }
-
-  nav a:hover {
-    color: var(--blue);
-  }
-
-  .nav-button {
-    background: var(--blue);
-    color: white;
-    padding: 12px 19px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 700;
-  }
-
-  /* HERO */
-
   .hero {
-    position: relative;
-    overflow: hidden;
+    padding: 90px 0 80px;
     background:
-      radial-gradient(circle at 80% 20%, rgba(18,166,216,.12), transparent 28%),
-      linear-gradient(135deg, #f5fbfd 0%, #ffffff 60%);
-    padding: 90px 0 85px;
+      radial-gradient(circle at 85% 20%, rgba(37, 99, 235, 0.13), transparent 35%),
+      #f8fbff;
+    overflow: hidden;
   }
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.05fr .95fr;
+    grid-template-columns: 1.15fr 0.85fr;
     align-items: center;
-    gap: 80px;
-    position: relative;
-    z-index: 2;
+    gap: 70px;
   }
 
-  .eyebrow,
-  .section-label {
-    color: var(--blue);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 2px;
-  }
-
-  .eyebrow {
+  .hero-label {
     display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-
-  .dot {
-    width: 7px;
-    height: 7px;
-    background: #19b76a;
-    border-radius: 50%;
-    box-shadow: 0 0 0 5px rgba(25,183,106,.1);
+    margin-bottom: 22px;
+    padding: 8px 14px;
+    border: 1px solid #bfdbfe;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
   }
 
   .hero h1 {
-    max-width: 700px;
-    font-family: "Manrope", sans-serif;
-    font-size: clamp(44px, 5.4vw, 76px);
-    line-height: 1.04;
-    letter-spacing: -3px;
+    max-width: 720px;
+    margin: 0;
+    color: #0f172a;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.03;
+    letter-spacing: -0.045em;
   }
 
   .hero h1 span {
-    color: var(--blue);
     display: block;
+    color: #2563eb;
   }
 
-  .hero-content > p {
-    max-width: 610px;
-    margin-top: 25px;
-    color: var(--muted);
-    font-size: 16px;
+  .hero p {
+    max-width: 650px;
+    margin: 26px 0 0;
+    color: #64748b;
+    font-size: 17px;
     line-height: 1.8;
   }
 
@@ -792,289 +344,182 @@ function whatsapp(service = "konsultasi service AC") {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-top: 32px;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    min-height: 50px;
-    padding: 0 22px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 700;
-  }
-
-  .btn-primary {
-    background: var(--blue);
-    color: white;
-    box-shadow: 0 10px 25px rgba(7,89,133,.2);
+    margin-top: 34px;
   }
 
   .btn-outline {
-    border: 1px solid var(--line);
-    background: white;
-    color: var(--ink);
+    border: 1px solid #dbe3ef;
+    background: #ffffff;
+    color: #0f172a;
   }
 
-  .hero-info {
-    display: flex;
-    gap: 35px;
-    margin-top: 48px;
+  .btn-outline:hover {
+    border-color: #2563eb;
+    color: #2563eb;
   }
 
-  .hero-info div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hero-info strong {
-    font-family: "Manrope", sans-serif;
-    font-size: 20px;
-    color: var(--blue-dark);
-  }
-
-  .hero-info span {
-    color: #83939c;
-    font-size: 10px;
-    margin-top: 2px;
-  }
-
-  .hero-card {
-    min-height: 475px;
-    border-radius: 22px;
-    background:
-      linear-gradient(145deg, #074e72, #062e45);
-    color: white;
-    box-shadow: 0 35px 80px rgba(4,59,89,.2);
-    padding: 25px;
+  .hero-visual {
     position: relative;
-    overflow: hidden;
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .hero-card::before {
-    content: "";
-    position: absolute;
+  .ac-card {
     width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: rgba(18,166,216,.16);
-    right: -90px;
-    top: -80px;
+    height: 170px;
+    padding: 28px;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #ffffff, #e8f1ff);
+    border: 1px solid #dbeafe;
+    box-shadow: 0 30px 70px rgba(15, 23, 42, 0.14);
+    transform: perspective(700px) rotateY(-12deg) rotateX(5deg);
   }
 
-  .hero-card-top,
-  .hero-card-bottom {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
-    font-size: 9px;
-    letter-spacing: 2px;
-    opacity: .8;
-  }
-
-  .hero-card-bottom {
-    position: absolute;
-    bottom: 25px;
-    left: 25px;
-    right: 25px;
-  }
-
-  .hero-card-bottom strong {
-    color: #72d9f8;
-  }
-
-  .ac-illustration {
-    height: 340px;
-    display: grid;
-    place-items: center;
-  }
-
-  .ac-unit {
-    width: 290px;
-    height: 100px;
-    border-radius: 18px 18px 12px 12px;
-    background: linear-gradient(#ffffff, #dfe9ed);
-    position: relative;
-    box-shadow: 0 25px 40px rgba(0,0,0,.2);
-  }
-
-  .ac-unit::after {
-    content: "";
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    bottom: 17px;
-    height: 3px;
-    background: #bdcdd3;
-    border-radius: 20px;
+  .ac-top {
+    width: 90px;
+    height: 6px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+    background: #cbd5e1;
   }
 
   .ac-display {
-    position: absolute;
-    right: 28px;
-    top: 25px;
-    color: var(--blue);
-    font-weight: 800;
-    font-size: 11px;
+    width: 48px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    background: #0f172a;
+    color: #67e8f9;
+    font-size: 12px;
+    text-align: center;
   }
 
   .ac-line {
-    position: absolute;
-    left: 22px;
-    top: 27px;
-    width: 95px;
+    width: 100%;
     height: 4px;
-    background: #c8d5da;
+    margin-top: 30px;
     border-radius: 10px;
+    background: #cbd5e1;
   }
 
-  .air {
+  .ac-line.short {
+    width: 65%;
+    margin-top: 9px;
+  }
+
+  .floating-card {
     position: absolute;
-    width: 22px;
-    height: 70px;
-    border-right: 2px solid rgba(255,255,255,.5);
-    border-radius: 50%;
-    bottom: -75px;
-  }
-
-  .air-one {
-    left: 70px;
-  }
-
-  .air-two {
-    left: 135px;
-  }
-
-  .air-three {
-    left: 200px;
-  }
-
-  .hero-glow {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(1px);
-    pointer-events: none;
-  }
-
-  .glow-one {
-    width: 250px;
-    height: 250px;
-    background: rgba(18,166,216,.08);
-    top: 10%;
-    left: -100px;
-  }
-
-  .glow-two {
-    width: 300px;
-    height: 300px;
-    background: rgba(7,89,133,.06);
-    bottom: -150px;
-    right: 30%;
-  }
-
-  /* TRUST */
-
-  .trust {
-    background: var(--blue-dark);
-    color: white;
-  }
-
-  .trust-inner {
-    min-height: 82px;
+    right: 5%;
+    bottom: 25px;
     display: flex;
-    align-items: center;
-    gap: 40px;
+    flex-direction: column;
+    padding: 18px 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
   }
 
-  .trust-inner > span {
-    color: #73bdd9;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-right: 10px;
+  .floating-card strong {
+    color: #2563eb;
+    font-size: 30px;
+    line-height: 1;
   }
 
-  .trust-inner div {
-    color: rgba(255,255,255,.82);
+  .floating-card span {
+    margin-top: 5px;
+    color: #64748b;
     font-size: 12px;
   }
 
-  /* GENERAL */
+  .trust {
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    background: #ffffff;
+  }
 
-  .section {
-    padding: 110px 0;
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .trust-item {
+    padding: 26px 20px;
+    text-align: center;
+    border-right: 1px solid #e2e8f0;
+  }
+
+  .trust-item:last-child {
+    border-right: 0;
+  }
+
+  .trust-item strong {
+    display: block;
+    color: #0f172a;
+    font-size: 24px;
+  }
+
+  .trust-item span {
+    display: block;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 13px;
   }
 
   .section-heading {
     display: flex;
     align-items: end;
     justify-content: space-between;
-    gap: 60px;
+    gap: 30px;
+    margin-bottom: 42px;
   }
 
-  .section-heading h2,
-  .about-content h2,
-  .why-heading h2,
-  .faq-intro h2,
-  .area h2 {
-    font-family: "Manrope", sans-serif;
-    font-size: clamp(34px, 4vw, 52px);
-    line-height: 1.08;
-    letter-spacing: -2px;
-    margin-top: 14px;
-  }
-
-  .section-heading h2 span,
-  .about-content h2 span,
-  .why-heading h2 span,
-  .faq-intro h2 span,
-  .area h2 span {
-    color: var(--blue);
-  }
-
-  .section-heading > p {
-    max-width: 430px;
-    color: var(--muted);
+  .text-link {
+    color: #2563eb;
     font-size: 14px;
-    line-height: 1.8;
+    font-weight: 800;
+    white-space: nowrap;
   }
-
-  /* SERVICES */
 
   .service-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-top: 55px;
+    gap: 18px;
   }
 
   .service-card {
-    min-height: 290px;
-    padding: 25px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    position: relative;
-    transition: .3s;
-    background: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 310px;
+    padding: 26px;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    background: #ffffff;
+    transition: 0.25s ease;
   }
 
   .service-card:hover {
-    transform: translateY(-7px);
-    border-color: #9ed8eb;
-    box-shadow: var(--shadow);
+    border-color: #93c5fd;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  }
+
+  .service-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .service-number {
-    position: absolute;
-    right: 22px;
-    top: 22px;
-    color: #c4d1d7;
-    font-size: 10px;
-    font-weight: 700;
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .service-arrow {
+    color: #2563eb;
+    font-size: 20px;
   }
 
   .service-icon {
@@ -1082,426 +527,120 @@ function whatsapp(service = "konsultasi service AC") {
     height: 48px;
     display: grid;
     place-items: center;
-    background: var(--blue-light);
-    border-radius: 12px;
-    font-size: 22px;
+    margin: 30px 0 22px;
+    border-radius: 14px;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 21px;
   }
 
   .service-card h3 {
-    margin-top: 45px;
-    font-family: "Manrope", sans-serif;
-    font-size: 18px;
-  }
-
-  .service-card p {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.7;
-    margin-top: 8px;
-  }
-
-  .service-link {
-    position: absolute;
-    bottom: 22px;
-    left: 25px;
-    color: var(--blue);
-    font-size: 10px;
-    font-weight: 800;
-  }
-
-  /* ABOUT */
-
-  .about {
-    background: var(--off);
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: .9fr 1.1fr;
-    gap: 90px;
-    align-items: center;
-  }
-
-  .about-visual {
-    min-height: 500px;
-    border-radius: 20px;
-    background:
-      linear-gradient(135deg, rgba(7,89,133,.95), rgba(4,59,89,.98));
-    display: grid;
-    place-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .about-visual::before,
-  .about-visual::after {
-    content: "";
-    position: absolute;
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 50%;
-  }
-
-  .about-visual::before {
-    width: 430px;
-    height: 430px;
-  }
-
-  .about-visual::after {
-    width: 300px;
-    height: 300px;
-  }
-
-  .about-box {
-    position: relative;
-    z-index: 2;
-    color: white;
-    text-align: center;
-  }
-
-  .about-box span {
-    color: #72d9f8;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 3px;
-  }
-
-  .about-box strong {
-    display: block;
-    margin-top: 15px;
-    font-family: "Manrope", sans-serif;
-    font-size: 52px;
-    line-height: .95;
-    letter-spacing: -3px;
-  }
-
-  .about-box small {
-    display: block;
-    margin-top: 20px;
-    color: rgba(255,255,255,.6);
-    font-size: 9px;
-    letter-spacing: 3px;
-  }
-
-  .about-content > p {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.9;
-    margin-top: 25px;
-    max-width: 580px;
-  }
-
-  .check-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-top: 30px;
-  }
-
-  .check-list div {
-    color: #425865;
-    font-size: 12px;
-    font-weight: 600;
-  }
-
-  .check-list span {
-    color: #11a665;
-    margin-right: 7px;
-    font-weight: 800;
-  }
-
-  /* PRICE */
-
-  .price-section {
-    background: #fff;
-  }
-
-  .centered {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .centered > p {
-    margin-top: 18px;
-  }
-
-  .price-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    margin-top: 55px;
-  }
-
-  .price-card {
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    overflow: hidden;
-    background: white;
-  }
-
-  .price-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 20px 22px;
-    background: var(--off);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .price-title > span {
-    width: 7px;
-    height: 25px;
-    border-radius: 10px;
-    background: var(--blue);
-  }
-
-  .price-title h3 {
-    font-family: "Manrope", sans-serif;
-    font-size: 15px;
-  }
-
-  .price-row {
-    min-height: 58px;
-    padding: 12px 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    border-bottom: 1px solid #edf2f4;
-    transition: .2s;
-  }
-
-  .price-row:last-child {
-    border-bottom: none;
-  }
-
-  .price-row:hover {
-    background: #f5fbfd;
-  }
-
-  .price-row span {
-    color: #4c606c;
-    font-size: 11px;
-    line-height: 1.4;
-  }
-
-  .price-row strong {
-    color: var(--blue);
-    font-size: 12px;
-    white-space: nowrap;
-  }
-
-  .price-note {
-    display: flex;
-    gap: 12px;
-    margin-top: 20px;
-    padding: 18px 20px;
-    background: var(--blue-light);
-    border-radius: 10px;
-  }
-
-  .price-note span {
-    color: var(--blue);
-  }
-
-  .price-note p {
-    color: #54707e;
-    font-size: 11px;
-  }
-
-  /* WHY */
-
-  .why {
-    background: var(--blue-dark);
-    color: white;
-  }
-
-  .why-inner {
-    display: grid;
-    grid-template-columns: .7fr 1.3fr;
-    gap: 100px;
-  }
-
-  .why-heading .section-label {
-    color: #72d9f8;
-  }
-
-  .why-heading h2 span {
-    color: #72d9f8;
-  }
-
-  .why-list {
-    border-top: 1px solid rgba(255,255,255,.14);
-  }
-
-  .why-item {
-    display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 20px;
-    padding: 27px 0;
-    border-bottom: 1px solid rgba(255,255,255,.14);
-  }
-
-  .why-item > span {
-    color: #55bddd;
-    font-size: 11px;
-    font-weight: 800;
-  }
-
-  .why-item h3 {
-    font-family: "Manrope", sans-serif;
-    font-size: 17px;
-  }
-
-  .why-item p {
-    color: #a5bbc5;
-    font-size: 12px;
-    margin-top: 5px;
-  }
-
-  /* PROCESS */
-
-  .process-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 55px;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .process-card {
-    padding: 35px 30px;
-    border-right: 1px solid var(--line);
-  }
-
-  .process-card:last-child {
-    border-right: none;
-  }
-
-  .process-card > span {
-    color: var(--blue);
-    font-size: 10px;
-    font-weight: 800;
-  }
-
-  .process-card h3 {
-    margin-top: 30px;
-    font-family: "Manrope", sans-serif;
+    margin: 0;
+    color: #0f172a;
     font-size: 19px;
   }
 
-  .process-card p {
-    color: var(--muted);
-    font-size: 12px;
+  .service-card p {
+    margin: 12px 0 0;
+    color: #64748b;
+    font-size: 14px;
     line-height: 1.7;
-    margin-top: 8px;
   }
 
-  /* AREA */
-
-  .area {
-    background: var(--blue-light);
-    padding: 85px 0;
+  .service-link {
+    margin-top: auto;
+    padding-top: 22px;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 800;
   }
 
-  .area-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
+  .dark-section {
+    padding: 90px 0;
+    background: #0f172a;
+    color: #ffffff;
+  }
+
+  .dark-section .section-label {
+    color: #60a5fa;
+  }
+
+  .dark-section h2 {
+    max-width: 560px;
+    color: #ffffff;
+  }
+
+  .dark-section h2 span {
+    display: block;
+    color: #60a5fa;
+  }
+
+  .dark-description {
+    max-width: 540px;
+    margin-top: 24px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+
+  .feature-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .feature-item {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 18px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .feature-item > span {
+    color: #60a5fa;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .feature-item strong {
+    font-size: 16px;
+  }
+
+  .feature-item p {
+    margin: 7px 0 0;
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   .area-box {
     display: flex;
     align-items: center;
-    gap: 18px;
-    padding: 25px 30px;
-    background: white;
-    border-radius: 12px;
-    min-width: 360px;
-    box-shadow: 0 15px 40px rgba(7,89,133,.08);
+    justify-content: space-between;
+    gap: 40px;
+    padding: 55px;
+    border: 1px solid #dbeafe;
+    border-radius: 24px;
+    background: #eff6ff;
   }
 
-  .area-box > span {
-    font-size: 28px;
+  .area-box h2 {
+    margin-top: 10px;
   }
 
-  .area-box strong {
-    font-family: "Manrope", sans-serif;
+  .area-box h2 span {
+    display: block;
+    color: #2563eb;
   }
 
   .area-box p {
-    color: var(--muted);
-    font-size: 11px;
-    margin-top: 3px;
+    margin: 16px 0 0;
+    color: #64748b;
   }
-
-  /* FAQ */
-
-  .faq-grid {
-    display: grid;
-    grid-template-columns: .8fr 1.2fr;
-    gap: 100px;
-  }
-
-  .faq-intro > p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.8;
-    margin: 25px 0;
-    max-width: 390px;
-  }
-
-  .faq-list details {
-    border-bottom: 1px solid var(--line);
-  }
-
-  .faq-list details:first-child {
-    border-top: 1px solid var(--line);
-  }
-
-  .faq-list summary {
-    list-style: none;
-    cursor: pointer;
-    min-height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    font-size: 13px;
-    font-weight: 700;
-  }
-
-  .faq-list summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-list summary span {
-    color: var(--blue);
-    font-size: 22px;
-    font-weight: 400;
-  }
-
-  .faq-list details[open] summary span {
-    transform: rotate(45deg);
-  }
-
-  .faq-list details p {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.8;
-    padding: 0 30px 22px 0;
-  }
-
-  /* CTA */
 
   .cta {
-    background:
-      radial-gradient(circle at 85% 30%, rgba(18,166,216,.25), transparent 30%),
-      var(--blue);
-    color: white;
     padding: 75px 0;
+    background: #2563eb;
+    color: #ffffff;
   }
 
   .cta-inner {
@@ -1512,238 +651,62 @@ function whatsapp(service = "konsultasi service AC") {
   }
 
   .cta-inner > div > span {
-    color: #76d7f4;
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: 2px;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
   }
 
   .cta h2 {
     margin-top: 12px;
-    font-family: "Manrope", sans-serif;
-    font-size: clamp(30px, 4vw, 48px);
-    line-height: 1.05;
-    letter-spacing: -2px;
+    color: #ffffff;
   }
 
   .cta h2 strong {
-    color: #a9e8f9;
+    color: #dbeafe;
   }
 
   .cta-button {
-    min-width: 270px;
-    padding: 20px 23px;
-    border-radius: 10px;
-    background: white;
-    color: var(--blue-dark);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 3px 15px;
-  }
-
-  .cta-button span {
-    font-size: 9px;
-    color: var(--muted);
-    grid-column: 1;
-  }
-
-  .cta-button strong {
-    font-size: 16px;
-    grid-column: 1;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 18px 22px;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #0f172a;
+    white-space: nowrap;
   }
 
   .cta-button b {
-    grid-column: 2;
-    grid-row: 1 / 3;
-    align-self: center;
-    font-size: 24px;
-    color: var(--blue);
+    color: #2563eb;
+    font-size: 20px;
   }
 
-  /* FOOTER */
-
-  footer {
-    background: #031f2f;
-    color: white;
-    padding: 65px 0 25px;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 70px;
-  }
-
-  .footer-brand p {
-    max-width: 330px;
-    margin-top: 20px;
-    color: #829aa6;
-    font-size: 12px;
-  }
-
-  footer .brand-icon {
-    background: #0a638e;
-  }
-
-  footer .brand strong {
-    color: white;
-  }
-
-  footer h4 {
-    color: #73c7e5;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    margin-bottom: 18px;
-  }
-
-  footer > .container > div:not(.footer-brand) {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-  }
-
-  footer .footer-grid > div:not(.footer-brand) a,
-  footer .footer-grid > div:not(.footer-brand) span {
-    color: #a5b9c2;
-    font-size: 11px;
-  }
-
-  .copyright {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-top: 55px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,.1);
-    color: #627d89;
-    font-size: 9px;
-  }
-
-  /* FLOATING WA */
-
-  .floating-wa {
-    width: 58px;
-    height: 58px;
-    display: grid;
-    place-items: center;
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    z-index: 90;
-    border-radius: 50%;
-    background: #12a665;
-    color: white;
-    box-shadow: 0 10px 30px rgba(18,166,101,.3);
-    font-size: 12px;
-    font-weight: 800;
-    border: 3px solid white;
-  }
-
-  /* MOBILE */
-
-  @media (max-width: 900px) {
-    .container {
-      width: min(100% - 30px, 680px);
-    }
-
-    .navbar {
-      height: 70px;
-    }
-
-    nav {
-      display: none;
-    }
-
-    .nav-button {
-      padding: 10px 13px;
-      font-size: 10px;
-    }
-
-    .hero {
-      padding: 65px 0;
-    }
-
-    .hero-grid,
-    .about-grid,
-    .why-inner,
-    .faq-grid {
+  @media (max-width: 1000px) {
+    .hero-grid {
       grid-template-columns: 1fr;
-      gap: 45px;
     }
 
-    .hero h1 {
-      font-size: clamp(42px, 12vw, 65px);
-      letter-spacing: -2px;
-    }
-
-    .hero-content > p {
-      font-size: 14px;
-    }
-
-    .hero-card {
-      min-height: 400px;
-    }
-
-    .ac-illustration {
-      height: 275px;
+    .hero-visual {
+      min-height: 300px;
     }
 
     .service-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .about-visual {
-      min-height: 360px;
-    }
-
-    .price-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .area-inner,
-    .cta-inner {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .area-box {
-      min-width: 0;
-      width: 100%;
-    }
-
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .footer-brand {
-      grid-column: 1 / -1;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (max-width: 560px) {
-    .container {
-      width: calc(100% - 28px);
-    }
-
-    .brand strong {
-      font-size: 13px;
-    }
-
-    .brand-icon {
-      width: 34px;
-      height: 34px;
-    }
-
-    .nav-button {
-      display: none;
-    }
-
+  @media (max-width: 700px) {
     .hero {
-      padding: 55px 0;
+      padding: 60px 0;
     }
 
     .hero h1 {
-      font-size: 42px;
+      font-size: 43px;
+    }
+
+    .hero p {
+      font-size: 15px;
     }
 
     .hero-actions {
@@ -1752,137 +715,71 @@ function whatsapp(service = "konsultasi service AC") {
 
     .hero-actions .btn {
       width: 100%;
+      text-align: center;
     }
 
-    .hero-info {
-      gap: 22px;
+    .hero-visual {
+      min-height: 250px;
     }
 
-    .hero-info strong {
-      font-size: 17px;
+    .ac-card {
+      width: 245px;
+      height: 140px;
     }
 
-    .hero-card {
-      min-height: 350px;
-      padding: 20px;
+    .floating-card {
+      right: 0;
+      bottom: 5px;
     }
 
-    .ac-illustration {
-      height: 240px;
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .ac-unit {
-      transform: scale(.78);
+    .trust-item:nth-child(2) {
+      border-right: 0;
     }
 
-    .trust-inner {
-      flex-wrap: wrap;
-      gap: 13px 22px;
-      padding: 20px 0;
-    }
-
-    .trust-inner > span {
-      width: 100%;
-    }
-
-    .section {
-      padding: 75px 0;
+    .trust-item:nth-child(-n + 2) {
+      border-bottom: 1px solid #e2e8f0;
     }
 
     .section-heading {
       display: block;
     }
 
-    .section-heading > p {
-      margin-top: 20px;
+    .text-link {
+      display: inline-block;
+      margin-top: 18px;
     }
 
     .service-grid {
       grid-template-columns: 1fr;
-      margin-top: 35px;
     }
 
-    .service-card {
-      min-height: 235px;
-    }
-
-    .about-visual {
-      min-height: 310px;
-    }
-
-    .about-box strong {
-      font-size: 43px;
-    }
-
-    .check-list {
+    .two-column {
       grid-template-columns: 1fr;
-    }
-
-    .price-grid {
-      margin-top: 35px;
-    }
-
-    .price-row {
-      padding: 13px 15px;
-    }
-
-    .price-row span {
-      max-width: 62%;
-    }
-
-    .price-row strong {
-      font-size: 11px;
-    }
-
-    .process-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .process-card {
-      border-right: none;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .process-card:last-child {
-      border-bottom: none;
-    }
-
-    .area {
-      padding: 65px 0;
     }
 
     .area-box {
-      padding: 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 32px 24px;
     }
 
-    .cta {
-      padding: 60px 0;
+    .area-box .btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .cta-button {
       width: 100%;
-      min-width: 0;
-    }
-
-    .footer-grid {
-      grid-template-columns: 1fr;
-      gap: 35px;
-    }
-
-    .footer-brand {
-      grid-column: auto;
-    }
-
-    .copyright {
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .floating-wa {
-      width: 52px;
-      height: 52px;
-      right: 15px;
-      bottom: 15px;
+      justify-content: space-between;
     }
   }
 </style>

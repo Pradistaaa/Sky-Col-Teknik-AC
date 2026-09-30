@@ -1,0 +1,451 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { whatsapp } from "../lib/data.js";
+---
+
+<MainLayout
+  title="Cara Booking | Sky Col Teknik AC"
+  description="Cara melakukan booking service AC bersama Sky Col Teknik AC di wilayah DKI Jakarta."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">CARA BOOKING</span>
+
+      <h1>
+        Booking service AC
+        <span>lebih mudah.</span>
+      </h1>
+
+      <p>
+        Hubungi Sky Col Teknik AC melalui WhatsApp,
+        informasikan kebutuhan AC dan lokasi Anda,
+        lalu tentukan waktu layanan.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-label">LANGKAH BOOKING</span>
+
+        <h2>
+          Cukup lakukan
+          <span>3 langkah.</span>
+        </h2>
+
+        <p>
+          Sampaikan kebutuhan AC Anda kepada kami melalui
+          WhatsApp untuk mendapatkan informasi layanan.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-number">01</div>
+
+          <div>
+            <span class="step-label">LANGKAH PERTAMA</span>
+            <h3>Hubungi Kami</h3>
+
+            <p>
+              Kirim pesan melalui WhatsApp dan sampaikan
+              kebutuhan service AC Anda.
+            </p>
+
+            <a
+              href={whatsapp("konsultasi service AC")}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Hubungi WhatsApp →
+            </a>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+
+          <div>
+            <span class="step-label">LANGKAH KEDUA</span>
+            <h3>Informasikan Lokasi</h3>
+
+            <p>
+              Berikan informasi lokasi dan jenis atau
+              kapasitas AC yang membutuhkan layanan.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+
+          <div>
+            <span class="step-label">LANGKAH KETIGA</span>
+            <h3>Jadwalkan Service</h3>
+
+            <p>
+              Tentukan waktu layanan dan komunikasikan
+              kebutuhan service AC Anda melalui WhatsApp.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-section">
+    <div class="container">
+      <div class="booking-grid">
+        <div>
+          <span class="section-label">SEBELUM BOOKING</span>
+
+          <h2>
+            Siapkan informasi
+            <span>AC Anda.</span>
+          </h2>
+
+          <p>
+            Agar komunikasi lebih mudah, Anda dapat
+            menyiapkan beberapa informasi mengenai AC
+            yang membutuhkan layanan.
+          </p>
+        </div>
+
+        <div class="info-list">
+          <div class="info-item">
+            <span>01</span>
+            <div>
+              <strong>Jenis layanan</strong>
+              <p>
+                Contohnya cuci AC, freon, bongkar pasang,
+                pengecekan, atau perbaikan.
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span>02</span>
+            <div>
+              <strong>Lokasi</strong>
+              <p>
+                Informasikan lokasi tempat AC berada
+                di wilayah DKI Jakarta.
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span>03</span>
+            <div>
+              <strong>Jenis atau kapasitas AC</strong>
+              <p>
+                Jika mengetahui kapasitas AC seperti
+                0.5–1 PK atau 1.5–2 PK, informasikan
+                kepada kami.
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span>04</span>
+            <div>
+              <strong>Keluhan AC</strong>
+              <p>
+                Jelaskan masalah atau kondisi AC yang
+                sedang dialami.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <span class="section-label">WHATSAPP</span>
+
+          <h2>
+            Siap melakukan
+            <span>booking?</span>
+          </h2>
+
+          <p>
+            Hubungi Sky Col Teknik AC untuk menyampaikan
+            kebutuhan service AC Anda.
+          </p>
+        </div>
+
+        <a
+          class="contact-button"
+          href={whatsapp()}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>0812 9798 3801</strong>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .page-hero {
+    padding: 90px 0 80px;
+    background:
+      radial-gradient(
+        circle at 85% 20%,
+        rgba(37, 99, 235, 0.12),
+        transparent 35%
+      ),
+      #f8fbff;
+  }
+
+  .page-hero h1 {
+    max-width: 720px;
+    margin: 18px 0 0;
+    color: #0f172a;
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+  }
+
+  .page-hero h1 span {
+    display: block;
+    color: #2563eb;
+  }
+
+  .page-hero p {
+    max-width: 650px;
+    margin-top: 24px;
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .section-heading {
+    max-width: 700px;
+    margin-bottom: 45px;
+  }
+
+  .section-heading h2 {
+    margin-top: 12px;
+  }
+
+  .section-heading h2 span {
+    display: block;
+    color: #2563eb;
+  }
+
+  .section-heading p {
+    margin-top: 18px;
+    color: #64748b;
+    line-height: 1.8;
+  }
+
+  .steps {
+    display: grid;
+    gap: 18px;
+  }
+
+  .step-card {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 30px;
+    align-items: start;
+    padding: 32px;
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
+    background: #ffffff;
+  }
+
+  .step-number {
+    color: #2563eb;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
+
+  .step-label {
+    color: #2563eb;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+  }
+
+  .step-card h3 {
+    margin: 9px 0 10px;
+    color: #0f172a;
+    font-size: 23px;
+  }
+
+  .step-card p {
+    max-width: 650px;
+    margin: 0;
+    color: #64748b;
+    line-height: 1.75;
+  }
+
+  .step-card a {
+    display: inline-block;
+    margin-top: 18px;
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .dark-section {
+    padding: 90px 0;
+    background: #0f172a;
+    color: #ffffff;
+  }
+
+  .dark-section .section-label {
+    color: #60a5fa;
+  }
+
+  .booking-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 90px;
+    align-items: start;
+  }
+
+  .booking-grid h2 {
+    margin-top: 14px;
+    color: #ffffff;
+  }
+
+  .booking-grid h2 span {
+    display: block;
+    color: #60a5fa;
+  }
+
+  .booking-grid > div:first-child p {
+    max-width: 500px;
+    margin-top: 20px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+
+  .info-list {
+    display: grid;
+    gap: 16px;
+  }
+
+  .info-item {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .info-item > span {
+    color: #60a5fa;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .info-item strong {
+    color: #ffffff;
+    font-size: 17px;
+  }
+
+  .info-item p {
+    margin-top: 7px;
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .contact-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 50px;
+    border: 1px solid #dbeafe;
+    border-radius: 24px;
+    background: #eff6ff;
+  }
+
+  .contact-box h2 {
+    margin-top: 12px;
+  }
+
+  .contact-box h2 span {
+    display: block;
+    color: #2563eb;
+  }
+
+  .contact-box p {
+    margin-top: 16px;
+    color: #64748b;
+    line-height: 1.7;
+  }
+
+  .contact-button {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 18px 22px;
+    border-radius: 14px;
+    background: #2563eb;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+  .contact-button span {
+    font-size: 20px;
+  }
+
+  @media (max-width: 850px) {
+    .booking-grid {
+      grid-template-columns: 1fr;
+      gap: 45px;
+    }
+
+    .contact-box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .page-hero {
+      padding: 60px 0;
+    }
+
+    .page-hero h1 {
+      font-size: 43px;
+    }
+
+    .page-hero p {
+      font-size: 15px;
+    }
+
+    .step-card {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      padding: 25px;
+    }
+
+    .step-number {
+      font-size: 22px;
+    }
+
+    .contact-box {
+      padding: 30px 24px;
+    }
+
+    .contact-button {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+</style>
